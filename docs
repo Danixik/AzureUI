@@ -1,0 +1,41 @@
+| window |
+local window = library:window('AzureUI')
+
+| tab |
+local Tab1 = window:tab('Tab')  --(autoscale)
+
+| section |
+local Section1 = Tab1:section('Section', 'Left') --'Left' or 'Right'
+
+| button | 
+Section1:button('Button', function() -- button
+	print('Clicked!')
+end)
+
+| toggle | 
+Section1:toggle('Toggle',true,function(val) --text,default(true,false),callback
+	library:setwatermark(val) -- watermark visibility
+end)
+
+| slider |
+Section1:slider('Slider',0,100,function(val) --high numbers fucked lololol could care less to fix it
+	print(val)
+end)
+
+| textbox |
+Section1:textbox('Textbox',function(val)
+	print(val)
+end)
+
+| dropdowns |
+Section1:dropdown('Multidropdown',true,{'yes','no'},function(val)
+	print(val)
+end)
+
+Section1:dropdown('Dropdown',false,{'yes','no'},function(val)
+	print(val)
+end)
+
+| EXTRA |
+library:watermark('bloxsense') -- text | plrname | FPS (the fps is kinda fucked XDDDDD)
+library:notify('notify',5)
